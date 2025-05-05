@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+void main() {
+    int a[20], i, j, n, large, index, temp;
+
+    printf("Enter value of n: ");
+    scanf("%d", &n);
+
+    // Read array elements
+    for (i = 0; i < n; i++) {
+        printf("Enter element for a[%d]: ", i);
+        scanf("%d", &a[i]);
+    }
+
+    printf("Before sorting the elements in the array are:\n");
+    for (i = 0; i < n; i++) {
+        printf("Value of a[%d] = %d\n", i, a[i]);
+    }
+
+    // Selection sort - largest element method
+    for (i = 0; i < n; i++) {
+        large = i;
+        for (j = i + 1; j < n; j++) {
+            if (a[j] > a[large]) {
+                large = j;
+            }
+        }
+        // Swap
+        temp = a[i];
+        a[i] = a[large];
+        a[large] = temp;
+    }
+
+    printf("After sorting the elements in the array are:\n");
+    for (i = 0; i < n; i++) {
+        printf("Value of a[%d] = %d\n", i, a[i]);
+    }
+}
